@@ -9,7 +9,7 @@ wisecow:
 
 ingress:
   enabled: true
-  host: wisecow.your-domain.com 
+  host: wisecow.com 
   ingressClassName: nginx
   
   tls:
