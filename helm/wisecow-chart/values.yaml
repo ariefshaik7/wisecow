@@ -4,7 +4,7 @@ wisecow:
 
   image:
     repository: ariefshaik007/wisecow
-    tag: "v1"
+    tag: '18283347288'
     pullPolicy: IfNotPresent
 
 ingress:
