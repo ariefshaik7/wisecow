@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wisecow
+  labels:
+    app: wisecow
+spec:
+  replicas: {{ .Values.wisecow.replicaCount }}
+  selector:
+    matchLabels:
+      app: wisecow
+  template:
+    metadata:
+      labels:
+        app: wisecow
+    spec:
+      containers:
+      - name: wisecow
+        image: "{{ .Values.wisecow.image.repository }}:{{ .Values.wisecow.image.tag }}"
+        ports:
+        - containerPort: 4499

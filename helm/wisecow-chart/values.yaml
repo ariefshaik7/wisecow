@@ -1,0 +1,14 @@
+
+
+wisecow:
+  image:
+    repository: ariefshaik007/wisecow
+    tag: "v1"
+  replicaCount: 2
+  service:
+    port: 4499
+
+
+ingress:
+  enabled: true
+  host: wisecow.com
