@@ -16,4 +16,4 @@ ingress:
   tls:
     enabled: true
     secretName: wisecow-tls
-    clusterIssuer: letsencrypt-staging
+    clusterIssuer: selfsigned-issuer
