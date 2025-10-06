@@ -2,7 +2,7 @@ FROM debian:bullseye-slim
 
 WORKDIR /app
 
-COPY wisecow.sh .
+COPY wisecow/wisecow.sh .
 
 RUN chmod +x wisecow.sh \
     && apt-get update \
