@@ -1,6 +1,7 @@
 wisecow:
   replicaCount: 2
-  port: 4499 
+  port: 80
+  targetPort: 4499 
 
   image:
     repository: ariefshaik007/wisecow
@@ -9,10 +10,10 @@ wisecow:
 
 ingress:
   enabled: true
-  host: wisecow.com 
+  host: wisecow.local.com 
   ingressClassName: nginx
   
   tls:
     enabled: true
-    secretName: wisecow-tls-secret
-    clusterIssuer: cert-manager-issuer
+    secretName: wisecow-tls
+    clusterIssuer: letsencrypt-staging

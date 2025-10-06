@@ -20,5 +20,5 @@ spec:
         imagePullPolicy: {{ .Values.wisecow.image.pullPolicy }}
         ports:
         - name: http
-          containerPort: {{ .Values.wisecow.port }}
+          containerPort: {{ .Values.wisecow.targetPort }}
           protocol: TCP
