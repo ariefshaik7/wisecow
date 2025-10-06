@@ -427,3 +427,4 @@ To run the application on your local machine, follow these steps:
     
     Open your web browser and navigate to [`http://localhost:4499`](http://localhost:4499). You should see a wise cow!
     
+---
