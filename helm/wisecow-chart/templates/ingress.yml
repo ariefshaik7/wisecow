@@ -3,25 +3,21 @@ kind: Ingress
 metadata:
   name: wisecow-ingress
   annotations:
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    cert-manager.io/cluster-issuer: {{ .Values.ingress.tls.clusterIssuer }}
 spec:
-  ingressClassName: nginx
+  ingressClassName: {{ .Values.ingress.ingressClassName }}
   rules:
-  - host: {{ .Values.ingress.host | default "simplenotes.com" }}
+  - host: {{ .Values.ingress.host }}
     http:
       paths:
-      - path: /api(/|$)(.*)
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: simplenotes-backend
-            port:
-              number: 5001
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: frontend-service
+            name: wisecow-service
             port:
-              number: 80
+              number: {{ .Values.wisecow.port }}
+  tls:
+  - hosts:
+    - {{ .Values.ingress.host }}
+    secretName: {{ .Values.ingress.tls.secretName }}

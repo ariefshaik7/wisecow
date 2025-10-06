@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: simplenotes
+  name: wisecow-app
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/ariefshaik7/flask-react-k8s.git'
-    path: helm/simplenotes-app-chart
+    repoURL: 'https://github.com/ariefshaik7/wisecow.git'
+    path: helm/wisecow-chart
     targetRevision: HEAD
     helm:
       valueFiles:
         - values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: app 
+    namespace: wisecow 
   syncPolicy:
     automated:
       prune: true

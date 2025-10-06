@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wisecow
+  name: wisecow-deployment
   labels:
     app: wisecow
 spec:
@@ -17,5 +17,8 @@ spec:
       containers:
       - name: wisecow
         image: "{{ .Values.wisecow.image.repository }}:{{ .Values.wisecow.image.tag }}"
+        imagePullPolicy: {{ .Values.wisecow.image.pullPolicy }}
         ports:
-        - containerPort: 4499
+        - name: http
+          containerPort: {{ .Values.wisecow.port }}
+          protocol: TCP

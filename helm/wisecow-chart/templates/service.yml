@@ -5,10 +5,10 @@ metadata:
   labels:
     app: wisecow
 spec:
+  type: ClusterIP
   selector:
     app: wisecow
   ports:
     - protocol: TCP
-      name: http
-      port: {{ .Values.wisecow.service.port }}
-      targetPort: {{ .Values.wisecow.service.port }}
+      port: {{ .Values.wisecow.port }}
+      targetPort: http
